@@ -28,14 +28,6 @@ pwm2=GPIO.PWM(servo2,50) #sets PWM for the pin
 
 def convert_data_for_pointer(startdatalist,datalist):
   #I found these max values in testing microbit accelerometer
-  xmaxneg
-  xmaxpos
-  ymaxneg
-  ymaxpos
-  #I found these max values for the servos
-  pwmmax = 10
-  pwmmin = 3
-  
   xdifference = datalist(0) - startdatalist(0)
   ydifference = datalist(1) - startdatalist(1)
   
@@ -49,5 +41,5 @@ def main():
   while True:
     data = s.readline().decode('UTF-8')   #check for data.  this code blocks script from moving forward until data is received.
     datalist = data.rstrip().split(' ')
-    gpiolist = convert_data_for_pointer(startdatalist, datalist)
+    convert_data_and_use(startdatalist, datalist)
     
