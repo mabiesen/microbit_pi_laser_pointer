@@ -26,8 +26,10 @@ pwm2=GPIO.PWM(servo2,50) #sets PWM for the pin
 #####pwm.start(5)
 #####pwm.ChangeDutyCycle(spam) #moves pointer to location designated by spam
 
-def convert_data_for_pointer(startdatalist,datalist):
-  #I found these max values in testing microbit accelerometer
+def convert_data_and_use(startdatalist,datalist):
+  # minimum buffer value
+  
+  # I found these max values in testing microbit accelerometer
   xdifference = datalist(0) - startdatalist(0)
   ydifference = datalist(1) - startdatalist(1)
   
