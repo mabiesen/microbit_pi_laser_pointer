@@ -44,8 +44,8 @@ def move_servo(myservo, mymove):
 startdata = s.readline()
 
 # Set starting position, should move at this point
-move_servo(servo1,pointer_starty)
-move_servo(servo2,pointer_startx)
+#move_servo(servo1,pointer_starty)
+#move_servo(servo2,pointer_startx)
 
 while True:
   # Get The Data
@@ -61,5 +61,5 @@ while True:
   print("y is %d" % current_y)
 
   # Set current servo positions
-  move_servo(servo1, current_y)
-  move_servo(servo2, current_x)
+  #move_servo(servo1, current_y)
+  #move_servo(servo2, current_x)
