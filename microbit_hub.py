@@ -2,9 +2,11 @@
 from microbit import *
 import radio
 
+radio.on()
 
 while True:
+  display.scroll("d")
   incoming = radio.receive()
-  if len(incoming) > 1:
-    uart.write(incoming + "\n")
-  sleep(300)
+  if incoming:
+    display.scroll(incoming)
+    #uart.write(incoming + "\n")
