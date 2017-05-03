@@ -36,11 +36,11 @@ def main():
   startdata = s.readline()
   #determine microbit starting position
   startdata = s.readline().decode('UTF-8')   #check for data.  this code blocks script from moving forward until data is received.
-  startdatalist = startdata.rstrip().split(' ')
+  startdatalist = startdata.rstrip().split(',')
   
   while True:
     data = s.readline().decode('UTF-8')   #check for data.  this code blocks script from moving forward until data is received.
-    datalist = data.rstrip().split(' ')  
+    datalist = data.rstrip().split(',')  
     xdifference = datalist(0) - startdatalist(0)
     ydifference = datalist(1) - startdatalist(1)
     
