@@ -9,4 +9,4 @@ while True:
   incoming = radio.receive()
   if incoming:
     display.scroll(incoming)
-    #uart.write(incoming + "\n")
+    uart.write(incoming + "\n")
