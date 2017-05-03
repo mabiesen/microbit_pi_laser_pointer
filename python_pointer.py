@@ -36,9 +36,11 @@ def convert_data_and_use(startdatalist,datalist):
   
 
 def main():
+  #discard first reading
+  startdata = s.readline()
   #determine microbit starting position
   startdata = s.readline().decode('UTF-8')   #check for data.  this code blocks script from moving forward until data is received.
-  startdatalist = data.rstrip().split(' ')
+  startdatalist = startdata.rstrip().split(' ')
   
   while True:
     data = s.readline().decode('UTF-8')   #check for data.  this code blocks script from moving forward until data is received.
