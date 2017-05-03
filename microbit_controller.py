@@ -4,8 +4,11 @@ import radio
 
 radio.on()
 
-while True:
-  my_send = accelerometer.get_values()
-  display.scroll(my_send[0])
-  radio.send(my_send)
+display.scroll("place on flat surface, press a")
+
+if button_a.was_pressed():
+  while True:
+    my_data = accelerometer.get_values()
+    mysend = str(my_data[0]) + "," + str(my_data[1]) 
+    radio.send(my_send)
   
