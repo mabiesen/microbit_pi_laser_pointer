@@ -23,16 +23,12 @@ GPIO.setup(servo2,GPIO.OUT) #assign pin as an output
 pwm2=GPIO.PWM(servo2,50) #sets PWM for the pin
 
 
+my_buffer = 100
+servo_min = 3
+servo_max = 9
+
 #####pwm.start(5)
 #####pwm.ChangeDutyCycle(spam) #moves pointer to location designated by spam
-
-def convert_data_and_use(startdatalist,datalist):
-  # minimum buffer value
-  
-  # I found these max values in testing microbit accelerometer
-  xdifference = datalist(0) - startdatalist(0)
-  ydifference = datalist(1) - startdatalist(1)
-  
   
 
 def main():
@@ -44,6 +40,7 @@ def main():
   
   while True:
     data = s.readline().decode('UTF-8')   #check for data.  this code blocks script from moving forward until data is received.
-    datalist = data.rstrip().split(' ')
-    convert_data_and_use(startdatalist, datalist)
+    datalist = data.rstrip().split(' ')  
+    xdifference = datalist(0) - startdatalist(0)
+    ydifference = datalist(1) - startdatalist(1)
     
