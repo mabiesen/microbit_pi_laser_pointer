@@ -18,18 +18,23 @@ servo2 = 16 #placeholder
 pointer_startx = 6
 pointer_starty = 6
 
-# Set variables we will use to convert data to servo movement
-my_buffer = 100
-servo_min = 3
-servo_max = 9
-  
+
+
+def get_servo_value(myval):
+  # Set variables we will use to convert data to servo movement, create coefficient
+  my_buffer = 100
+  servo_min = 3.0
+  servo_max = 9.0
+  tilt_max = 500.0
+  full_tilt = tilt_max * 2
+  move_val = abs(myval)/full_tilt * (servo_max - servo_min) + servo_min
+  return move_val
+
+
 
 
 #discard first reading
 startdata = s.readline()
-#determine microbit starting position
-startdata = s.readline().decode('UTF-8')   #check for data.  this code blocks script from moving forward until data is received.
-startdatalist = startdata.rstrip().split(',')
 
 # Set top servo starting position
 GPIO.setmode(GPIO.BOARD) #declare the reference style for GPIO
@@ -52,9 +57,9 @@ while True:
   data = s.readline().decode('UTF-8')   #check for data.  this code blocks script from moving forward until data is received.
   datalist = data.rstrip().split(',')
 
-  # Convert the data to movement.  First find difference
-  xdifference = datalist(0) - startdatalist(0)
-  ydifference = datalist(1) - startdatalist(1)
+  # Convert the data to movement. 
+  current_x = get_servo_value(int(datalist[0]))
+  current_y = get_servo_value(int(datalist[1]))
 
   # Set top servo position
   GPIO.setmode(GPIO.BOARD) #declare the reference style for GPIO
