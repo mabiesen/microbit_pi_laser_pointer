@@ -16,7 +16,7 @@ while True:
         send_acc_data()
     if button_b.was_pressed():
         my_switch = True
-        while myswitch:
+        while my_switch:
             send_acc_data():
             if button_b.was_pressed():
                 my_switch = False
