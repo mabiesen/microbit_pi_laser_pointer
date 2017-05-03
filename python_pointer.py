@@ -28,7 +28,7 @@ def get_servo_value(myval):
   tilt_max = 976.0
   full_tilt = tilt_max * 2.0
   new_val = tilt_max + myval        # This compensates for negative values
-  move_val = abs(newval)/full_tilt * (servo_max - servo_min) + servo_min
+  move_val = abs(new_val)/full_tilt * (servo_max - servo_min) + servo_min
   return move_val
 
 def move_servo(myservo, mymove):
@@ -55,9 +55,10 @@ while True:
   current_y = get_servo_value(int(datalist[1]))
   
   # Print current vals to console
-  print("x is %d" % current_x)
-  print("y is %d" % current_y)
+  print("x is %2f" % current_x)
+  print("y is %2f" % current_y)
 
   # Set current servo positions
   #move_servo(servo1, current_y)
   #move_servo(servo2, current_x)
+
