@@ -55,6 +55,10 @@ while True:
   # Convert the data to movement. 
   current_x = get_servo_value(int(datalist[0]))
   current_y = get_servo_value(int(datalist[1]))
+  
+  # Print current vals to console
+  print(current_x)
+  print(current_y)
 
   # Set current servo positions
   move_servo(servo1, current_y)
