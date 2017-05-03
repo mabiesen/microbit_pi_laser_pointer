@@ -25,4 +25,4 @@ So flow is as follows:
 
 ## Moving Forward
 
-This was a proof of the following concepts: using the microbit as a wireless controller,  accuracy of the microbit's accelerometer
+This project was a proof of the following concepts: using the microbit as a wireless controller,  accuracy of the microbit's accelerometer, and live communication between the microbit and external devices.  Now that these concepts have been proven, the code can be tweaked and reused in projects such as: gathering environmental data to your pc, creating a centralized hub for home automations(lights, thermostat, etc), robotics controllers(if the compass works just as well, drone programming)
