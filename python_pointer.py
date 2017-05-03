@@ -57,8 +57,8 @@ while True:
   current_y = get_servo_value(int(datalist[1]))
   
   # Print current vals to console
-  print(current_x)
-  print(current_y)
+  print("x is %d" % current_x)
+  print("y is %d" % current_y)
 
   # Set current servo positions
   move_servo(servo1, current_y)
