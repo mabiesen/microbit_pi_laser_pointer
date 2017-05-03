@@ -23,6 +23,4 @@ So flow is as follows:
 3.  The hub microbit receives incoming data from the controller microbit.  This data is then sent directly to the Raspberry Pi through a USB connection.
 4.  The Raspberry Pi will parse the incoming data and convert the data to values that are acceptable to our servos.  The servos will then be moved to the location suggested by the coordinates
 
-## Moving Forward
-
-This project was a proof of the following concepts: using the microbit as a wireless controller,  accuracy of the microbit's accelerometer, and live communication between the microbit and external devices.  Now that these concepts have been proven, the code can be tweaked and reused in projects such as: gathering environmental data to your pc, creating a centralized hub for home automations(lights, thermostat, etc), robotics controllers(if the compass works just as well, drone programming)
+This project was a proof of the following concepts: radio reliability,  accuracy of the microbit's accelerometer, and live communication between the microbit and external devices via usb.  The project was a success with zero hiccups, the microbit seems very reliable in its data communications and sensor accuracy.
