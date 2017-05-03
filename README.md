@@ -20,8 +20,8 @@ Everything is written in Python.
 
 So flow is as follows:
 1. each of the devices are turned on. Plug the "hub" microbit into the Raspberry Pi USB port.  Plug in servos before turning on the Raspberry Pi.
-2. The controller waits for the user to press "a" or "b".  If the user presses "a", a single set of coordinates will be sent to the hub microbit using radio; if "b" is pressed, the microbit will stream data until "b" is pressed again.  Anytime the controller microbit sends, the letters "se" appear on the screen.  The values that are sent are "x" and "y" tilt values, which range from -1000 to +1000.
-3.  The hub microbit receives incoming data from the controller microbit.  This data is then sent directly to the Raspberry Pi through a USB connection.
-4.  The Raspberry Pi will parse the incoming data and convert the data to values that are acceptable to our servos.  The servos will then be moved to the location suggested by the coordinates
+2. The controller waits for the user to press "a" or "b".  If the user presses "a", a single set of coordinates will be sent to the hub microbit using radio; if "b" is pressed, the microbit will stream data until "b" is pressed again.  Anytime the controller microbit sends, the letters "se" appear on the leds.  The values that are sent are "x" and "y" tilt values, which range from -1000 to +1000.
+3.  The hub microbit receives incoming data from the controller microbit.  This data is then sent directly to the Raspberry Pi through a USB connection.  If the hub is currently waiting for input, "w" is printed to the leds.  If it has input, "r" is written to the leds.
+4.  The Raspberry Pi will parse the incoming data and convert the data to values that are acceptable to our servos.  The servos will then be moved to the location suggested by the coordinates.  The console will also print out the current servo-converted-values of x and y.
 
 This project was a proof of the following concepts: radio reliability,  accuracy of the microbit's accelerometer, and live communication between the microbit and external devices via usb.  The project was a success with zero hiccups, the microbit seems very reliable in its data communications and sensor accuracy.
