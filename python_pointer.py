@@ -26,8 +26,9 @@ def get_servo_value(myval):
   servo_min = 3.0
   servo_max = 9.0
   tilt_max = 976.0
-  full_tilt = tilt_max * 2
-  move_val = abs(myval)/full_tilt * (servo_max - servo_min) + servo_min
+  full_tilt = tilt_max * 2.0
+  new_val = tilt_max + myval        # This compensates for negative values
+  move_val = abs(newval)/full_tilt * (servo_max - servo_min) + servo_min
   return move_val
 
 def move_servo(myservo, mymove):
