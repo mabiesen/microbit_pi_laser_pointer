@@ -22,10 +22,10 @@ pointer_starty = 6
 
 def get_servo_value(myval):
   # Set variables we will use to convert data to servo movement, create coefficient
-  my_buffer = 100
+  # Put point 0 on everything to insure float calculation
   servo_min = 3.0
   servo_max = 9.0
-  tilt_max = 500.0
+  tilt_max = 976.0
   full_tilt = tilt_max * 2
   move_val = abs(myval)/full_tilt * (servo_max - servo_min) + servo_min
   return move_val
