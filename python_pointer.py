@@ -16,7 +16,7 @@ s.stopbits = serial.STOPBITS_ONE
 servo1 = 13 #placeholder
 servo2 = 16 #placeholder
 
-
+# Set variables we will use to convert data to servo movement
 my_buffer = 100
 servo_min = 3
 servo_max = 9
@@ -35,9 +35,11 @@ def main():
   startdatalist = startdata.rstrip().split(',')
   
   while True:
-    
+    # Get The Data
     data = s.readline().decode('UTF-8')   #check for data.  this code blocks script from moving forward until data is received.
-    datalist = data.rstrip().split(',')  
+    datalist = data.rstrip().split(',')
+    
+    # Convert the data to movement
     xdifference = datalist(0) - startdatalist(0)
     ydifference = datalist(1) - startdatalist(1)
     
