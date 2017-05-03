@@ -59,13 +59,3 @@ while True:
   # Set current servo positions
   move_servo(servo1, current_y)
   move_servo(servo2, current_x)
-
-  # Set bottom servo position
-  GPIO.setmode(GPIO.BOARD) #declare the reference style for GPIO
-  GPIO.setup(servo2,GPIO.OUT) #assign pin as an output
-  pwm2=GPIO.PWM(servo2,50) #sets PWM for the pin
-  pwm2.start(5)
-  pwm2.changedutycycle(current_y)
-  GPIO.clanup()
-    
-    
