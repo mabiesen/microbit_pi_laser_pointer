@@ -4,11 +4,8 @@ import radio
 
 radio.on()
 
-display.scroll("place on flat surface, press a")
-
-if button_a.was_pressed():
-  while True:
-    my_data = accelerometer.get_values()
-    mysend = str(my_data[0]) + "," + str(my_data[1]) 
-    radio.send(my_send)
+while True:
+    my_send = accelerometer.get_values()                # Get acc data
+    radio.send(str(my_send[0])+"," + str(my_send[1]))   # Send only x and y data as comma separated string
+    sleep(800)                                          # Slow down input process
   
