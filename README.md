@@ -2,11 +2,12 @@
 Project using the microbit to send messages to raspberry pi, which will in turn move a laser pointer
 
 ## Hardware Requirements
-
+```
 1 raspberry pi
 2 microbits
 Turret containing two servos (build directions and pictures forthcoming)
 6 volts power supply for the servos, 4 AA batteries will do(do not power servos through Pi directly)
+```
 
 ## Languages Used
 
