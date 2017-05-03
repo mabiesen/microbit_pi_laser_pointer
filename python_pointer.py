@@ -30,27 +30,22 @@ def get_servo_value(myval):
   move_val = abs(myval)/full_tilt * (servo_max - servo_min) + servo_min
   return move_val
 
-
+def move_servo(myservo, mymove):
+  # Set top servo position
+  GPIO.setmode(GPIO.BOARD) #declare the reference style for GPIO
+  GPIO.setup(myservo,GPIO.OUT) #assign pin as an output
+  pwm1=GPIO.PWM(myservo,50) #sets PWM for the pin
+  pwm1.start(5)
+  pwm1.changedutycycle(mymove)
+  GPIO.cleanup()
 
 
 #discard first reading
 startdata = s.readline()
 
-# Set top servo starting position
-GPIO.setmode(GPIO.BOARD) #declare the reference style for GPIO
-GPIO.setup(servo1,GPIO.OUT) #assign pin as an output
-pwm1=GPIO.PWM(servo1,50) #sets PWM for the pin
-pwm1.start(5)
-pwm1.changedutycycle(pointer_starty)
-GPIO.cleanup()
-
-# Set bottom servo starting position
-GPIO.setmode(GPIO.BOARD) #declare the reference style for GPIO
-GPIO.setup(servo2,GPIO.OUT) #assign pin as an output
-pwm2=GPIO.PWM(servo2,50) #sets PWM for the pin
-pwm2.start(5)
-pwm2.changedutycycle(pointer_startx)
-GPIO.clanup()
+# Set starting position, should move at this point
+move_servo(servo1,pointer_starty)
+move_servo(servo2,pointer_startx)
 
 while True:
   # Get The Data
@@ -61,13 +56,9 @@ while True:
   current_x = get_servo_value(int(datalist[0]))
   current_y = get_servo_value(int(datalist[1]))
 
-  # Set top servo position
-  GPIO.setmode(GPIO.BOARD) #declare the reference style for GPIO
-  GPIO.setup(servo1,GPIO.OUT) #assign pin as an output
-  pwm1=GPIO.PWM(servo1,50) #sets PWM for the pin
-  pwm1.start(5)
-  pwm1.changedutycycle(current_x)
-  GPIO.cleanup()
+  # Set current servo positions
+  move_servo(servo1, current_y)
+  move_servo(servo2, current_x)
 
   # Set bottom servo position
   GPIO.setmode(GPIO.BOARD) #declare the reference style for GPIO
