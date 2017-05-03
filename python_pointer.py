@@ -40,9 +40,6 @@ def move_servo(myservo, mymove):
   GPIO.cleanup()
 
 
-#discard first reading
-startdata = s.readline()
-
 # Set starting position, should move at this point
 #move_servo(servo1,pointer_starty)
 #move_servo(servo2,pointer_startx)
