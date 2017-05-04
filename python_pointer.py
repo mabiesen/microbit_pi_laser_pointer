@@ -50,6 +50,8 @@ def move_servo(myservo, mymove):
 #move_servo(servo1,pointer_starty)
 #move_servo(servo2,pointer_startx)
 
+# Loop forever gathering data from hub microbit, converting the data for servo use,
+# printing servo value, and activating servos
 while True:
   # Get The Data
   data = s.readline().decode('UTF-8')   #check for data.  this code blocks script from moving forward until data is received.
