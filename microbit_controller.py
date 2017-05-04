@@ -2,8 +2,10 @@
 from microbit import *
 import radio
 
+# my_switch variable will control our b button while loop
 my_switch = False
 
+# By default radio is off to conserve electricity, must turn on
 radio.on()
 
 # Send accelerometer data to the hub microbit
