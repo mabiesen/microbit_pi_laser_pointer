@@ -19,7 +19,9 @@ pointer_startx = 6
 pointer_starty = 6
 
 
-
+# This loop will take incoming tilt data and convert it to number our servo can use
+# Through testing, the servos have a pwm range between 3 and 9
+# Through testing, fulltilt appears to be 1000, reduced max val for ease of use
 def get_servo_value(myval):
   # Set variables we will use to convert data to servo movement, create coefficient
   # Put point 0 on everything to insure float calculation
@@ -31,6 +33,9 @@ def get_servo_value(myval):
   move_val = abs(new_val)/full_tilt * (servo_max - servo_min) + servo_min
   return move_val
 
+# Turns on gpio, moves serve, and then turns off the gpio
+# Note: from other experiments, it is best to turn off each GPIO after use
+# Irregularities in the Pi's signal output cause servos to twitch if not turned off
 def move_servo(myservo, mymove):
   # Set top servo position
   GPIO.setmode(GPIO.BOARD) #declare the reference style for GPIO
@@ -40,7 +45,7 @@ def move_servo(myservo, mymove):
   pwm1.changedutycycle(mymove)
   GPIO.cleanup()
 
-
+# UNCOMMENT TO USE SERVOS
 # Set starting position, should move at this point
 #move_servo(servo1,pointer_starty)
 #move_servo(servo2,pointer_startx)
@@ -58,6 +63,7 @@ while True:
   print("x is %2f" % current_x)
   print("y is %2f" % current_y)
 
+  # UNCOMMENT TO USE SERVOS
   # Set current servo positions
   #move_servo(servo1, current_y)
   #move_servo(servo2, current_x)
