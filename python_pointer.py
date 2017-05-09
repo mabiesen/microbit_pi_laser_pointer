@@ -13,8 +13,8 @@ s.databits = serial.EIGHTBITS
 s.stopbits = serial.STOPBITS_ONE
 
 # Set the variables that control our servos
-servo1 = 32
-servo2 = 23
+servo1 = 23
+servo2 = 32
 pointer_startx = 6
 pointer_starty = 6
 
@@ -45,11 +45,6 @@ def move_servo(myservo, mymove):
   pwm.ChangeDutyCycle(mymove)
   time.sleep(1)
   GPIO.cleanup()
-
-# UNCOMMENT TO USE SERVOS
-# Set starting position, should move at this point
-#move_servo(servo1,pointer_starty)
-#move_servo(servo2,pointer_startx)
 
 # Loop forever gathering data from hub microbit, converting the data for servo use,
 # printing servo value, and activating servos
