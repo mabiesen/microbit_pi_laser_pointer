@@ -55,7 +55,7 @@ while True:
   datalist = data.rstrip().split(',')
 
   # Convert the data to movement. 
-  current_x = get_servo_value(int(datalist[0]))
+  current_x = get_servo_value(int(datalist[0]) * -1)
   current_y = get_servo_value(int(datalist[1]))
   
   # Print current vals to console
