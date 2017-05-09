@@ -13,7 +13,7 @@ s.parity = serial.PARITY_NONE
 s.databits = serial.EIGHTBITS
 s.stopbits = serial.STOPBITS_ONE
 
-# Set the variables that control our servos
+### Set the variables that control our servos
 servo1 = 23
 servo2 = 32
 pointer_startx = 6
@@ -59,12 +59,13 @@ while True:
   current_y = get_servo_value(int(datalist[1]))
   
   # Print current vals to console
-  print("x is %2f" % current_x)
-  print("y is %2f" % current_y)
+  print("x is %d" % int(datalist[0]))
+  print("y is %d" % int(datalist[1]))
 
   # UNCOMMENT TO USE SERVOS
   # Set current servo positions
   move_servo(servo1, current_y)
   time.sleep(1)
   move_servo(servo2, current_x)
+
 
