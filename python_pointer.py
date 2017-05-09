@@ -13,8 +13,8 @@ s.databits = serial.EIGHTBITS
 s.stopbits = serial.STOPBITS_ONE
 
 # Set the variables that control our servos
-servo1 = 13 #placeholder
-servo2 = 16 #placeholder
+servo1 = 32
+servo2 = 23
 pointer_startx = 6
 pointer_starty = 6
 
@@ -38,11 +38,12 @@ def get_servo_value(myval):
 # Irregularities in the Pi's signal output cause servos to twitch if not turned off
 def move_servo(myservo, mymove):
   # Set top servo position
-  GPIO.setmode(GPIO.BOARD) #declare the reference style for GPIO
-  GPIO.setup(myservo,GPIO.OUT) #assign pin as an output
-  pwm1=GPIO.PWM(myservo,50) #sets PWM for the pin
-  pwm1.start(5)
-  pwm1.changedutycycle(mymove)
+  GPIO.setmode(GPIO.BOARD)
+  GPIO.setup(myservo,GPIO.OUT)
+  pwm=GPIO.PWM(myservo,50)
+  pwm.start(5)
+  pwm.ChangeDutyCycle(mymove)
+  time.sleep(1)
   GPIO.cleanup()
 
 # UNCOMMENT TO USE SERVOS
@@ -67,6 +68,6 @@ while True:
 
   # UNCOMMENT TO USE SERVOS
   # Set current servo positions
-  #move_servo(servo1, current_y)
-  #move_servo(servo2, current_x)
+  move_servo(servo1, current_y)
+  move_servo(servo2, current_x)
 
