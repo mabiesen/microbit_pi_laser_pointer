@@ -1,4 +1,5 @@
 # Script to receive data from the microbit and use that data to move our laser pointer
+# THIS SCRIPT BELONGS ON THE RASPBERRY PI
 
 import RPi.GPIO as GPIO
 import serial
