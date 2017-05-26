@@ -21,8 +21,8 @@ pointer_startx = 6
 pointer_starty = 6
 
 
-# This loop will take incoming tilt data and convert it to number our servo can use
-# Through testing, the servos have a pwm range between 3 and 9
+# This loop will take incoming tilt data and convert it to numbers our servo can use
+# Through testing, the servos have a pwm range between 3 and 9.  Your servos may be different
 # Through testing, fulltilt appears to be 1000, reduced max val for ease of use
 def get_servo_value(myval):
   # Set variables we will use to convert data to servo movement, create coefficient
