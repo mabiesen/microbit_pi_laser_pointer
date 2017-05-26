@@ -16,7 +16,7 @@ Everything is written in Python.
 ## Plugging in Your Servos
 
 ## How it works
-1 microbit will be connected directly to the raspberry pi and act in the capacity of an information hub.  The other microbit will be powered by battery and will be used to control motion of the laser pointer using the onboard accelerometer and compass.
+1 microbit will be connected directly to the raspberry pi and act in the capacity of an information hub.  The other microbit will be powered by battery and will be used to control motion of the laser pointer using the onboard accelerometer.
 
 So flow is as follows:
 1. each of the devices are turned on. Plug the "hub" microbit into the Raspberry Pi USB port.  Plug in servos before turning on the Raspberry Pi.
